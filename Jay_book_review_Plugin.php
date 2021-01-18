@@ -10,6 +10,9 @@ license: GPL2
 */
 
 // Register Book Review Post Type
+//Hooking up our function to theme setup
+add_action( 'init', 'book_review_post_type', 0 );
+//Our custom post type function
 function book_review_post_type() {
 
 	$labels = array(
@@ -27,10 +30,10 @@ function book_review_post_type() {
 		'edit_item'             => __( 'Edit Book Review', 'Jay_book_review_Plugin' ),
 		'update_item'           => __( 'Update Item', 'Jay_book_review_Plugin' ),
 		'view_item'             => __( 'View Book Review', 'Jay_book_review_Plugin' ),
-		'view_items'            => __( 'View Items', 'Jay_book_review_Plugin' ),
-		'search_items'          => __( 'Search Item', 'Jay_book_review_Plugin' ),
-		'not_found'             => __( 'No Reviews found', 'Jay_book_review_Plugin' ),
-		'not_found_in_trash'    => __( 'No Reviews Found in Trash', 'Jay_book_review_Plugin' ),
+		'view_items'            => __( 'View Book Items', 'Jay_book_review_Plugin' ),
+		'search_items'          => __( 'Search Book Item', 'Jay_book_review_Plugin' ),
+		'not_found'             => __( 'No Book Reviews found', 'Jay_book_review_Plugin' ),
+		'not_found_in_trash'    => __( 'No Book Reviews Found in Trash', 'Jay_book_review_Plugin' ),
 		'featured_image'        => __( 'Featured Image', 'Jay_book_review_Plugin' ),
 		'set_featured_image'    => __( 'Set featured image', 'Jay_book_review_Plugin' ),
 		'remove_featured_image' => __( 'Remove featured image', 'Jay_book_review_Plugin' ),
