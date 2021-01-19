@@ -44,3 +44,31 @@ function book_review_post_type() {
 		'items_list_navigation' => __( 'Items list navigation', 'Jay_book_review_Plugin' ),
 		'filter_items_list'     => __( 'Filter items list', 'Jay_book_review_Plugin' ),
 	);
+	
+	//Set other options for book review post type
+	$args = array(
+		'labels'                => $labels,
+		'description'           => __( 'Book review for our site.', 'Jay_book_review_Plugin' ),
+	
+	//Features this book review post type support in Post editor 
+		'supports'              => array( 'title', 'editor', 'revision', 'thumbnail', 'ecerpt', 'comments', 'custom-fields'),
+		'taxonomies'            => array( 'category', 'post_tag' ),
+		'rewrite'				=> array( 'slug' => 'book_review' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       =>'post',
+		'menu_icon'				=>'dashicons-book-alt',
+	);
+	//Register book review post type
+	register_post_type( 'book_review', $args );
+
+}
