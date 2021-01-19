@@ -72,3 +72,29 @@ function book_review_post_type() {
 	register_post_type( 'book_review', $args );
 
 }
+
+
+//Display the content at the bottom of the post
+add_filter( 'the_content', 'prepend_book_data' );
+function prepend_book_data ( $content ) {
+	
+	if ( is_singular ('book_review') ) {
+
+		$author = get_post_meta( get_the_ID(), 'author', true);
+		$score = get_post_meta( get_the_ID(), 'score', true);
+		$publish_date = get_post_meta( get_the_ID(), 'publish date', true);
+
+		$html = '
+			<div class="book-meta">
+				<strong>Author: </strong> '.$author.'<br>
+				<strong>Score: </strong> '.$score.'<br>
+				<strong>Publish Date: </strong> '.$publish_date.'<br>
+			</div>	 
+
+		';
+			
+		return $content . $html;
+	}
+		
+	return $content;
+}
